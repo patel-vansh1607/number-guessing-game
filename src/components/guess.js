@@ -1,4 +1,5 @@
 import "../styles/guess.css"
+import React, { useState } from 'react';
 
 const NumberGuessingGame = () => {
 
