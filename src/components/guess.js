@@ -7,19 +7,39 @@ const NumberGuessingGame = () => {
     const [target, setTarget] = useState(Math.floor(Math.random() * 100) + 1);
     const [attempts, setAttempts] = useState(0);
 
-    const handleGuessChange = (e) =>{
-        setGuess(e.target.value)
-    }
-
-    const handleSubmit = (e) =>{
-        e.prevent.default()
-        const userGuess = parseInt(guess)
-
-        if (NaN(userGuess)){
-            setMessage('Please enter a valid number please')
-            return
+    const handleGuessChange = (e) => {
+        setGuess(e.target.value);
+      };
+    
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        const userGuess = parseInt(guess);
+    
+        if (isNaN(userGuess)) {
+          setMessage('Please enter a valid number.');
+          return;
         }
-    }
+    
+        setAttempts(attempts + 1);
+    
+        if (userGuess === target) {
+          setMessage(`Congratulations! You guessed the number in ${attempts + 1} attempts.`);
+        } else if (userGuess < target) {
+          setMessage('Too low! Try again.');
+        } else {
+          setMessage('Too high! Try again.');
+        }
+    
+        setGuess('');
+      };
+    
+      const handleRestart = () => {
+        setTarget(Math.floor(Math.random() * 100) + 1);
+        setAttempts(0);
+        setMessage('');
+        setGuess('');
+      };
+
     return(
         <div className="main-div">
             <div className="main">
