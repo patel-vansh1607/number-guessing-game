@@ -10,6 +10,11 @@ const NumberGuessingGame = () => {
     const handleGuessChange = (e) =>{
         setGuess(e.target.value)
     }
+
+    const handleSubmit = (e) =>{
+        e.prevent.default()
+        const userGuess = parseInt(guess)
+    }
     return(
         <div className="main-div">
             <div className="main">
