@@ -14,6 +14,11 @@ const NumberGuessingGame = () => {
     const handleSubmit = (e) =>{
         e.prevent.default()
         const userGuess = parseInt(guess)
+
+        if (NaN(userGuess)){
+            setMessage('Please enter a valid number please')
+            return
+        }
     }
     return(
         <div className="main-div">
