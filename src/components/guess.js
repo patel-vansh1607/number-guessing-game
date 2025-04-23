@@ -9,6 +9,9 @@ const NumberGuessingGame = () => {
                 <input type="number" value={guess} onChange={handleGuessChange} placeholder="Enter a number between 1 and 100"/>
                 <button type="submit">Submit Guess</button>
                 </form>
+                <p>{message}</p>
+                <p>Attempts: {attempts}</p>
+                <button onClick={handleRestart}>Restart Game</button>
             </div>
         </div>
     )
