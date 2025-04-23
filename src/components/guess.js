@@ -6,6 +6,10 @@ const NumberGuessingGame = () => {
     const [message, setMessage] = useState('');
     const [target, setTarget] = useState(Math.floor(Math.random() * 100) + 1);
     const [attempts, setAttempts] = useState(0);
+
+    const handleGuessChange = (e) =>{
+        setGuess(e.target.value)
+    }
     return(
         <div className="main-div">
             <div className="main">
